@@ -1,17 +1,14 @@
 import requests as reqst
-import json as jsn
-
 
 
 def api(currency):
-
-    response = reqst.get("http://api.shaycryptoco.in/price/trx")#requesting api
+    response = reqst.get(f"http://api.shaycryptoco.in/price/{currency}")#requesting api to {currency} 
     json = response.json() #api-json
 
-    json = json[currency] #requesting currency
+    json = json[currency] #checking specific currency
 
-    text = f"The value of sccn to {currency} is {json}" 
+    text = f"The value of sccn to {currency} is {json}"  # formmating text
 
-    return text
+    return text #returning final value
 
-print(api('trx'))
+print(api('usd'))# change currency to currency of choice
